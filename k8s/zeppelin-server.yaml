@@ -117,13 +117,13 @@ spec:
         hostPath:
           path: /lab/zeppelin-k8s/notebook_10
           type: Directory
-      - name: zeppelin-server-conf
+      - name: zeppelin-server-conf-volume
         hostPath:
           path: /lab/zeppelin-k8s/conf_10
           type: Directory
       containers:
       - name: zeppelin-server
-        image: rogermm/zeppelin-custom-0.10.0:3.1.2-hadoop3.2-java11-bdb
+        image: rogermm/zeppelin-custom-0.10.0:master
         command: ["sh", "-c", "$(ZEPPELIN_HOME)/bin/zeppelin.sh"]
         lifecycle:
           preStop:
@@ -152,9 +152,9 @@ spec:
         - configMapRef:
             name: zeppelin-server-conf-map
         volumeMounts:
-          - name: zeppelin-server-notebook-volume     # configure this to persist notebook
+          - name: zeppelin-server-notebook-volume    # configure this to persist notebook
             mountPath: /opt/zeppelin/notebook
-          - name: zeppelin-server-conf                # configure this to persist Zeppelin configuration
+          - name: zeppelin-server-conf-volume        # configure this to persist Zeppelin configuration
             mountPath: /opt/zeppelin/conf
       #  - name: zeppelin-server-custom-k8s          # configure this to mount customized Kubernetes spec for interpreter
       #    mountPath: /zeppelin/k8s
