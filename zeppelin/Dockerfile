@@ -33,10 +33,6 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     # Allow process to create new folders (e.g. webapps)
     chmod 775 ${Z_HOME}
 
-# Modify Zeppelin distribuition: don't need to copy spark binaries, zeppelin container already has the right Spark distribuition
-# See Docker clause "FROM $USERNAME/spark-base-python:$TAG"
-COPY 100-interpreter-spec-${Z_VERSION}.yaml ${Z_HOME}/k8s/interpreter/100-interpreter-spec.yaml
-
 COPY log4j.properties ${ZEPPELIN_HOME}/conf/
 COPY log4j_docker.properties ${ZEPPELIN_HOME}/conf/
 COPY log4j2.properties ${ZEPPELIN_HOME}/conf/
