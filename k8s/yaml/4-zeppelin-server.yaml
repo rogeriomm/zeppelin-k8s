@@ -18,6 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: zeppelin-server-conf-map
+  namespace: zeppelin
 data:
   # 'serviceDomain' is a Domain name to use for accessing Zeppelin UI.
   # Should point IP address of 'zeppelin-server' service.
@@ -41,6 +42,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: zeppelin-server-conf
+  namespace: zeppelin
 data:
   nginx.conf: |
     daemon off;
@@ -91,6 +93,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zeppelin-server
+  namespace: zeppelin
   labels:
     app.kubernetes.io/name: zeppelin-server
 spec:
@@ -115,11 +118,15 @@ spec:
             path: nginx.conf
       - name: zeppelin-server-notebook-volume
         hostPath:
-          path: /lab/zeppelin-k8s/notebook_10
+          path: /labtools-k8s/zeppelin-k8s/notebook_10
           type: Directory
       - name: zeppelin-server-conf-volume
         hostPath:
-          path: /lab/zeppelin-k8s/conf_10
+          path: /labtools-k8s/zeppelin-k8s/conf_10
+          type: Directory
+      - name: zeppelin-server-k8s-interpreter
+        hostPath:
+          path: /labtools-k8s/zeppelin-k8s/k8s/interpreter
           type: Directory
       containers:
       - name: zeppelin-server
@@ -156,8 +163,8 @@ spec:
             mountPath: /opt/zeppelin/notebook
           - name: zeppelin-server-conf-volume        # configure this to persist Zeppelin configuration
             mountPath: /opt/zeppelin/conf
-      #  - name: zeppelin-server-custom-k8s          # configure this to mount customized Kubernetes spec for interpreter
-      #    mountPath: /zeppelin/k8s
+          - name: zeppelin-server-k8s-interpreter    # configure this to mount customized Kubernetes spec for interpreter
+            mountPath: /opt/zeppelin/k8s/interpreter
       - name: zeppelin-server-gateway
         image: nginx:1.14.0
         command: ["/bin/sh", "-c"]
@@ -195,6 +202,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: zeppelin-server
+  namespace: zeppelin
 spec:
   ports:
     - name: http
@@ -208,11 +216,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: zeppelin-server
+  namespace: zeppelin
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: zeppelin-server-role
+  namespace: zeppelin
 rules:
 - apiGroups: [""]
   resources: ["pods", "services", "configmaps"]
@@ -225,6 +235,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: zeppelin-server-role-binding
+  namespace: zeppelin
 subjects:
 - kind: ServiceAccount
   name: zeppelin-server

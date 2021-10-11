@@ -1355,7 +1355,7 @@
         },
         "spark.master": {
           "name": "spark.master",
-          "value": "k8s://https://kubernetes.defa",
+          "value": "k8s://https://kubernetes.default.svc",
           "type": "string",
           "description": "Spark master uri. local | yarn-client | yarn-cluster | spark master address of standalone mode, ex) spark://master_host:7077"
         },

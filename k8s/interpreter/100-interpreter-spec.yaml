@@ -85,30 +85,6 @@ spec:
         {{zeppelin.k8s.interpreter.gpu.type}}: "{{zeppelin.k8s.interpreter.gpu.nums}}"
   {% endif %}
   {% endif %}
-  {% if zeppelin.k8s.interpreter.group.name == "spark" %}
-    volumeMounts:
-    - name: spark-home
-      mountPath: /spark
-  initContainers:
-  - name: spark-home-init
-    image: {{zeppelin.k8s.spark.container.image}}
-    {% if zeppelin.k8s.spark.container.imagePullPolicy is defined %}
-    imagePullPolicy: {{zeppelin.k8s.spark.container.imagePullPolicy}}
-    {% endif %}
-    command: ["sh", "-c", "cp -r /opt/spark/* /spark/"]
-    volumeMounts:
-    - name: spark-home
-      mountPath: /spark
-  {% if zeppelin.k8s.interpreter.imagePullSecrets is defined %}
-  imagePullSecrets:
-  {% for secret in zeppelin.k8s.interpreter.imagePullSecrets.split(',') %}
-  - name: {{secret}}
-  {% endfor %}
-  {% endif %}
-  volumes:
-  - name: spark-home
-    emptyDir: {}
-  {% endif %}
 ---
 kind: Service
 apiVersion: v1
