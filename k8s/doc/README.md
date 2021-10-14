@@ -1,39 +1,40 @@
-![image info](DependencyManagement.png)
-   * https://zeppelin.apache.org/docs/0.10.0/interpreter/spark.html#dependency-management 
+# Docker containers
+   * [Official Spark container](https://raw.githubusercontent.com/rogeriomm/spark-k8s/cd390fc25a6824bcd9859b2674b3df568d2a4d2e/base/docker-spark-create-image.sh) 
+      * [Dockerfile base](https://github.com/rogeriomm/spark-k8s/blob/cd390fc25a6824bcd9859b2674b3df568d2a4d2e/base/Dockerfile)
+         * [Dockerfile base-python](https://github.com/rogeriomm/spark-k8s/blob/cd390fc25a6824bcd9859b2674b3df568d2a4d2e/base-python/Dockerfile)
+            * [Dockerfile zeppelin](https://github.com/rogeriomm/zeppelin-k8s/blob/5c13f6d5f1fb070e054fefe5b21a0360bd14923f/zeppelin/Dockerfile)
+               * [Dockerfile zeppelin-custom (Debug)](https://github.com/rogeriomm/zeppelin-k8s/blob/5c13f6d5f1fb070e054fefe5b21a0360bd14923f/zeppelin-custom/Dockerfile) 
 
-
-
-   * https://zeppelin.apache.org/docs/0.10.0/quickstart/kubernetes.html: Zeppelin on Kubernetes
-
-   * _/etc/hosts_ 
+# Kubernetes yaml
+   * [Create persistent volumes](https://github.com/rogeriomm/minikube-labtools-k8s/blob/72a965bc45b307a0a6422fd8322c8dea93523be7/yaml/persistent-volumes.yaml)
 ```commandline
-echo $(minikube ip) zeppelin.local | sudo bash -c "cat >> /etc/hosts"
+kubectl apply -f persistent-volumes.yaml
 ```
 
+   * [Create zeppelin cluster](https://github.com/rogeriomm/zeppelin-k8s/tree/5c13f6d5f1fb070e054fefe5b21a0360bd14923f/k8s/yaml)
+```commandline
+cd zeppelin-k8s/k8s
+kubectl apply -f yaml
+```
 
-  * https://github.com/apache/zeppelin/blob/master/k8s/zeppelin-server.yaml: Zeppelin k8s sample
-
-  * https://kubernetes.io/docs/concepts/workloads/pods/init-containers/: Init Containers
+# Zeppelin interpreter configuration
+## Delta
+   * [Zeppelin interpreter.json file](https://github.com/rogeriomm/zeppelin-k8s/blob/master/conf_10/interpreter.json) view
+![image info](zeppelin-spark-delta-interpretes.png)
 
 # Issues
 ## Spark init container error
    * https://kubernetes.io/docs/tasks/debug-application-cluster/debug-init-containers/
-   
-```commandline
-kubectl get pods spark-bizjkm -o yaml
-kubectl describe pod/spark-bizjkm
-```
-
    * https://github.com/apache/zeppelin/blob/master/k8s/interpreter/100-interpreter-spec.yaml
-
-
-# Minikube mount
-   * https://minikube.sigs.k8s.io/docs/handbook/mount/
-
-   * https://thospfuller.com/2020/12/09/learn-how-to-mount-a-local-drive-in-a-pod-in-minikube-2021/
-
+   * https://github.com/apache/zeppelin/blob/master/k8s/zeppelin-server.yaml: Zeppelin k8s sample
+   * https://kubernetes.io/docs/concepts/workloads/pods/init-containers/: Init Containers
 
 # References
    * https://jboothomas.medium.com/running-spark-on-kubernetes-with-persistent-storage-24b7903bb40a: Running spark on Kubernetes with persistent storage 😎
    * https://doc.lucidworks.com/spark-guide/11031/running-spark-on-kubernetes#using-kubernetes-volumes: Running Spark on Kubernetes 
    * https://gist.github.com/ogrrd/5831371: Install DNSMASQ on MAC OS. Never touch your local /etc/hosts file in OS X again 😎
+   * https://zeppelin.apache.org/docs/0.10.0/interpreter/spark.html#dependency-management 
+   * https://zeppelin.apache.org/docs/0.10.0/quickstart/kubernetes.html: Zeppelin on Kubernetes
+## Minikube mount
+   * https://minikube.sigs.k8s.io/docs/handbook/mount/
+   * https://thospfuller.com/2020/12/09/learn-how-to-mount-a-local-drive-in-a-pod-in-minikube-2021/
