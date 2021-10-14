@@ -25,6 +25,9 @@ kubectl apply -f yaml
    * [Zeppelin interpreter.json file](https://github.com/rogeriomm/zeppelin-k8s/blob/master/conf_10/interpreter.json) view
 ![image info](zeppelin-spark-delta-interpretes.png)
 
+# Sample Zeppelin notebooks
+   * [Delta lake sample using filesystem](https://github.com/rogeriomm/zeppelin-k8s/blob/master/notebook_10/DeltaLake/tutorial-1_2GJ5BXZY7.zpln)
+   * Delta lake using MINIO S3 (TODO)
 # Issues
 ## Spark init container error
    * https://kubernetes.io/docs/tasks/debug-application-cluster/debug-init-containers/
