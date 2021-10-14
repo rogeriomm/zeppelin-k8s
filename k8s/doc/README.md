@@ -18,7 +18,9 @@ kubectl apply -f yaml
 ```
 
    * [Custom Jinja Zeppelin interpreter file](https://github.com/rogeriomm/zeppelin-k8s/blob/master/k8s/interpreter/100-interpreter-spec.yaml)
-     * Based on original zeppelin template, removed init container specification 
+     * Based on original zeppelin template
+        * Removed init container specification
+        * Added persistent volume claim
 
 # Zeppelin interpreter configuration
 ## Delta
