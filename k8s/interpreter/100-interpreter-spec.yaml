@@ -40,6 +40,10 @@ spec:
   {% endif %}
   restartPolicy: Never
   terminationGracePeriodSeconds: 30
+  volumes:
+  - name: share-volume
+    persistentVolumeClaim:
+      claimName: host-claim
   containers:
   - name: {{zeppelin.k8s.interpreter.container.name}}
     image: {{zeppelin.k8s.interpreter.container.image}}
@@ -85,6 +89,10 @@ spec:
         {{zeppelin.k8s.interpreter.gpu.type}}: "{{zeppelin.k8s.interpreter.gpu.nums}}"
   {% endif %}
   {% endif %}
+    volumeMounts:
+      - name: share-volume
+        mountPath: /share
+
 ---
 kind: Service
 apiVersion: v1

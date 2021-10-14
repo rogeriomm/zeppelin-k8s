@@ -565,7 +565,7 @@
         },
         "spark.jars": {
           "name": "spark.jars",
-          "value": "",
+          "value": "/root/.ivy2/jars/io.delta_delta-core_2.12-1.0.0.jar",
           "type": "string",
           "description": "Comma-separated list of jars to include on the driver and executor classpaths. Globs are allowed."
         },
@@ -713,34 +713,34 @@
           "type": "checkbox",
           "description": "Show short types instead of full, e.g. List\u003cString\u003e or kotlin.collections.List\u003ckotlin.String\u003e"
         },
-        "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.options.claimName": {
-          "name": "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.options.claimName",
-          "value": "share",
+        "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.options.claimName": {
+          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.options.claimName",
+          "value": "host-claim",
           "type": "string"
         },
-        "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.mount.path": {
-          "name": "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.mount.path",
+        "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.mount.path": {
+          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.mount.path",
           "value": "/share",
           "type": "string"
         },
-        "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.mount.subPath": {
-          "name": "spark.kubernetes.driver.volumes.persistentVolumeClaim.rwxpvc.mount.subPath",
-          "value": "share",
+        "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.mount.subPath": {
+          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.share.mount.subPath",
+          "value": "",
           "type": "string"
         },
-        "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.options.claimName": {
-          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.options.claimName",
-          "value": "share",
+        "spark.sql.extensions": {
+          "name": "spark.sql.extensions",
+          "value": "io.delta.sql.DeltaSparkSessionExtension",
           "type": "string"
         },
-        "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.mount.path": {
-          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.mount.path",
-          "value": "/share",
+        "spark.sql.catalog.spark_catalog": {
+          "name": "spark.sql.catalog.spark_catalog",
+          "value": "org.apache.spark.sql.delta.catalog.DeltaCatalog",
           "type": "string"
         },
-        "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.mount.subPath": {
-          "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.rwxpvc.mount.subPath",
-          "value": "share",
+        "spark.driver.extraClassPath": {
+          "name": "spark.driver.extraClassPath",
+          "value": "",
           "type": "string"
         }
       },
@@ -835,7 +835,20 @@
           }
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        {
+          "groupArtifactVersion": "io.delta:delta-core_2.12:1.0.0",
+          "local": false
+        },
+        {
+          "groupArtifactVersion": "",
+          "local": false
+        },
+        {
+          "groupArtifactVersion": "",
+          "local": false
+        }
+      ],
       "option": {
         "remote": true,
         "port": -1,

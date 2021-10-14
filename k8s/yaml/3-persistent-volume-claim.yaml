@@ -1,9 +1,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: share 
+  name: host-claim
 spec:
-  storageClassName: pure-file
+  storageClassName: host
   accessModes:
     - ReadWriteMany
   resources:

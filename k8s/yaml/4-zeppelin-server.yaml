@@ -128,6 +128,9 @@ spec:
         hostPath:
           path: /labtools-k8s/zeppelin-k8s/k8s/interpreter
           type: Directory
+      - name: data-share-volume
+        persistentVolumeClaim:
+          claimName: host-claim
       containers:
       - name: zeppelin-server
         image: rogermm/zeppelin-custom-0.10.0:master
@@ -165,6 +168,8 @@ spec:
             mountPath: /opt/zeppelin/conf
           - name: zeppelin-server-k8s-interpreter    # configure this to mount customized Kubernetes spec for interpreter
             mountPath: /opt/zeppelin/k8s/interpreter
+          - name: data-share-volume
+            mountPath: /share
       - name: zeppelin-server-gateway
         image: nginx:1.14.0
         command: ["/bin/sh", "-c"]

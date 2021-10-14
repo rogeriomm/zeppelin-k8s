@@ -11,7 +11,7 @@ ENV LOG_TAG="[ZEPPELIN_${Z_VERSION}]:" \
 
 RUN echo "$LOG_TAG install basic packages" && \
     apt-get -y update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y locales tini wget && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y tini wget && \
     # Cleanup
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoclean && \
