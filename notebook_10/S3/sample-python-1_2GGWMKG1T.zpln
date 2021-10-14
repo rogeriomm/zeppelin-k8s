@@ -1,0 +1,193 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n   * https://docs.dominodatalab.com/en/4.3.3/reference/spark/on_demand_spark/Working_with_data.html :cool:",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:18:12.067",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://docs.dominodatalab.com/en/4.3.3/reference/spark/on_demand_spark/Working_with_data.html\"\u003ehttps://docs.dominodatalab.com/en/4.3.3/reference/spark/on_demand_spark/Working_with_data.html\u003c/a\u003e 🆒\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248292066_418325387",
+      "id": "paragraph_1630003426131_347191185",
+      "dateCreated": "2021-09-21 15:18:12.067",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n```\n/spark/bin/pyspark --packages io.delta:delta-core_2.12:1.0.0,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,org.apache.hadoop:hadoop-client:$HADOOP_VERSION,org.apache.hadoop:hadoop-common:$HADOOP_VERSION \\\n                       --conf \"spark.sql.extensions\u003dio.delta.sql.DeltaSparkSessionExtension\"  \\\n                       --conf \"spark.sql.catalog.spark_catalog\u003dorg.apache.spark.sql.delta.catalog.DeltaCatalog\"\n```",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:18:12.067",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cpre\u003e\u003ccode\u003e/spark/bin/pyspark --packages io.delta:delta-core_2.12:1.0.0,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,org.apache.hadoop:hadoop-client:$HADOOP_VERSION,org.apache.hadoop:hadoop-common:$HADOOP_VERSION \\\n                       --conf \u0026quot;spark.sql.extensions\u003dio.delta.sql.DeltaSparkSessionExtension\u0026quot;  \\\n                       --conf \u0026quot;spark.sql.catalog.spark_catalog\u003dorg.apache.spark.sql.delta.catalog.DeltaCatalog\u0026quot;\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248292067_4731310",
+      "id": "paragraph_1630005440187_1874421300",
+      "dateCreated": "2021-09-21 15:18:12.067",
+      "status": "READY"
+    },
+    {
+      "text": "%spark-delta.pyspark\n\nfrom pyspark import SparkContext\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import StringType\nfrom pyspark import SQLContext\nfrom itertools import islice\nfrom pyspark.sql.functions import col\n\n# add aws credentials: \n# https://hadoop.apache.org/docs/r3.2.1/hadoop-aws/tools/hadoop-aws/index.html: Hadoop-AWS module: Integration with Amazon Web Services\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.impl\", \"org.apache.hadoop.fs.s3a.S3AFileSystem\")\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.path.style.access\", \"True\")\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.endpoint\", \"http://nginx.bdb:9000\") # endpoint !!!!!MUST!!!! have dot character\".\"\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.access.key\", \"GBKLR3RJ8FRV3DZH6SIU\")\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.secret.key\", \"RDqx3+bgBcEpb36eqkvrO9gPfcmcUkyuHriTgclQ\")\n\ndf \u003d spark.read.json(\"s3a://teste/credentials.json\")\ndf.show()\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:18:12.067",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "keys": [
+                {
+                  "name": "id",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "age",
+                  "index": 2.0,
+                  "aggr": "avg"
+                }
+              ],
+              "setting": {
+                "lineChart": {}
+              },
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "bdtMeta": {
+            "inlay": {
+              "state": {
+                "table": {
+                  "columnWidths": {
+                    "console": 117.0
+                  }
+                },
+                "currentPage": "Table"
+              }
+            }
+          }
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|             console|\n+--------------------+\n|[{PUU0R6TSF3EPD9R...|\n+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248292067_240959310",
+      "id": "paragraph_1630002330319_627984562",
+      "dateCreated": "2021-09-21 15:18:12.067",
+      "status": "READY"
+    },
+    {
+      "text": "%spark-delta.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:18:12.067",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248292067_454664015",
+      "id": "paragraph_1631303255342_1280527194",
+      "dateCreated": "2021-09-21 15:18:12.067",
+      "status": "READY"
+    }
+  ],
+  "name": "sample-python-1",
+  "id": "2GGWMKG1T",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

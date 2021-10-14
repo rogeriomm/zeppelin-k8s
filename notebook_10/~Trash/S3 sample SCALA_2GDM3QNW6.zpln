@@ -1,0 +1,210 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n   * https://www.ti-enxame.com/pt/hadoop/como-acessar-os-arquivos-s3a-do-apache-spark/1053514545/",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-31 09:57:28.490",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://www.ti-enxame.com/pt/hadoop/como-acessar-os-arquivos-s3a-do-apache-spark/1053514545/\"\u003ehttps://www.ti-enxame.com/pt/hadoop/como-acessar-os-arquivos-s3a-do-apache-spark/1053514545/\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630067021559_592686099",
+      "id": "paragraph_1630067021559_592686099",
+      "dateCreated": "2021-08-27 09:23:41.559",
+      "dateStarted": "2021-08-31 09:57:28.490",
+      "dateFinished": "2021-08-31 09:57:28.532",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n```\n/spark/bin/spark-shell --packages io.delta:delta-core_2.12:1.0.0,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,org.apache.hadoop:hadoop-client:$HADOOP_VERSION,org.apache.hadoop:hadoop-common:$HADOOP_VERSION \\\n                       --conf \"spark.sql.extensions\u003dio.delta.sql.DeltaSparkSessionExtension\"  \\\n                       --conf \"spark.sql.catalog.spark_catalog\u003dorg.apache.spark.sql.delta.catalog.DeltaCatalog\"\n```",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15 14:57:47.919",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cpre\u003e\u003ccode\u003e/spark/bin/spark-shell --packages io.delta:delta-core_2.12:1.0.0,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,org.apache.hadoop:hadoop-client:$HADOOP_VERSION,org.apache.hadoop:hadoop-common:$HADOOP_VERSION \\\n                       --conf \u0026quot;spark.sql.extensions\u003dio.delta.sql.DeltaSparkSessionExtension\u0026quot;  \\\n                       --conf \u0026quot;spark.sql.catalog.spark_catalog\u003dorg.apache.spark.sql.delta.catalog.DeltaCatalog\u0026quot;\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630085321469_811193572",
+      "id": "paragraph_1630085321469_811193572",
+      "dateCreated": "2021-08-27 14:28:41.470",
+      "dateStarted": "2021-09-15 14:57:47.919",
+      "dateFinished": "2021-09-15 14:57:47.937",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark-delta\n\nsc.hadoopConfiguration.set(\"fs.s3a.path.style.access\", \"True\")\nsc.hadoopConfiguration.set(\"fs.s3a.endpoint\", \"http://nginx.bdb:9000\") // endpoint !!!!!MUST!!!! have dot character\".\"\nsc.hadoopConfiguration.set(\"fs.s3a.access.key\", \"GBKLR3RJ8FRV3DZH6SIU\")\nsc.hadoopConfiguration.set(\"fs.s3a.secret.key\", \"RDqx3+bgBcEpb36eqkvrO9gPfcmcUkyuHriTgclQ\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:14:15.432",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631728595685_627773684",
+      "id": "paragraph_1631728595685_627773684",
+      "dateCreated": "2021-09-15 14:56:35.685",
+      "dateStarted": "2021-09-21 15:14:15.445",
+      "dateFinished": "2021-09-21 15:14:15.723",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark-delta\n\nval sonnets \u003d sc.textFile(\"s3a://teste/credentials.json\")\n\n\nval counts \u003d sonnets.flatMap(line \u003d\u003e line.split(\" \")).map(word \u003d\u003e (word, 1)).reduceByKey(_ + _)\ncounts.saveAsTextFile(\"s3a://teste/credential2.json\")\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:14:17.810",
+      "progress": 100,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msonnets\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m \u003d s3a://teste/credentials.json MapPartitionsRDD[412] at textFile at \u003cconsole\u003e:39\n\u001b[1m\u001b[34mcounts\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Int)]\u001b[0m \u003d ShuffledRDD[415] at reduceByKey at \u003cconsole\u003e:42\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin10:4040/jobs/job?id\u003d71"
+            }
+          ],
+          "interpreterSettingId": "spark-delta"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630067876504_1126524350",
+      "id": "paragraph_1630067876504_1126524350",
+      "dateCreated": "2021-08-27 09:37:56.504",
+      "dateStarted": "2021-09-21 15:14:17.825",
+      "dateFinished": "2021-09-21 15:14:22.338",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark-delta\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-10 16:48:01.621",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631303281621_128697521",
+      "id": "paragraph_1631303281621_128697521",
+      "dateCreated": "2021-09-10 16:48:01.621",
+      "status": "READY"
+    }
+  ],
+  "name": "S3 sample SCALA",
+  "id": "2GDM3QNW6",
+  "defaultInterpreterGroup": "md",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,365 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n   * https://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage: Setting up Spark with minIO as object storage\n   * https://stackoverflow.com/questions/58415928/spark-s3-error-java-lang-classnotfoundexception-class-org-apache-hadoop-f:Spark + s3 - error - java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-26 16:02:14.034",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "bdtMeta": {
+            "inlay": {
+              "size": {
+                "height": 74.0
+              },
+              "state": {}
+            }
+          }
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage\"\u003ehttps://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage\u003c/a\u003e: Setting up Spark with minIO as object storage\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"https://stackoverflow.com/questions/58415928/spark-s3-error-java-lang-classnotfoundexception-class-org-apache-hadoop-f:Spark\"\u003ehttps://stackoverflow.com/questions/58415928/spark-s3-error-java-lang-classnotfoundexception-class-org-apache-hadoop-f:Spark\u003c/a\u003e + s3 - error - java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629838098360_1426280846",
+      "id": "paragraph_1629838098360_1426280846",
+      "dateCreated": "2021-08-24 17:48:18.361",
+      "dateStarted": "2021-08-26 15:04:23.275",
+      "dateFinished": "2021-08-26 15:04:23.286",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n\nval file \u003d sc.textFile(\"s3a://testbucket/testdata\")\n\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-27 09:48:29.546",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "tableHide": false,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {
+          "bdtMeta": {
+            "inlay": {
+              "size": {
+                "height": 171.0
+              },
+              "state": {}
+            }
+          }
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfile\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m \u003d s3a://testbucket/testdata MapPartitionsRDD[71] at textFile at \u003cconsole\u003e:29\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629828255409_1057057515",
+      "id": "paragraph_1629828255409_1057057515",
+      "dateCreated": "2021-08-24 15:04:15.409",
+      "dateStarted": "2021-08-26 15:08:03.387",
+      "dateFinished": "2021-08-26 15:08:03.554",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval counts \u003d file.flatMap(line \u003d\u003e line.split(\" \")).map(word \u003d\u003e (word, 1)).reduceByKey(_ + _)",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-26 09:59:44.413",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629982784396_1968554440",
+      "id": "paragraph_1629982784396_1968554440",
+      "dateCreated": "2021-08-26 09:59:44.396",
+      "status": "READY"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-26 15:05:19.970",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630001119955_1537750998",
+      "id": "paragraph_1630001119955_1537750998",
+      "dateCreated": "2021-08-26 15:05:19.955",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n   * https://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage: Setting up Spark with minIO as object storage\n   * https://sparkbyexamples.com/spark/spark-read-text-file-from-s3/: Spark Read Text File from AWS S3 bucket :+1:",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-27 09:48:29.561",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "bdtMeta": {
+            "inlay": {
+              "size": {
+                "height": 126.0
+              },
+              "state": {}
+            }
+          }
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage\"\u003ehttps://www.jitsejan.com/setting-up-spark-with-minio-as-object-storage\u003c/a\u003e: Setting up Spark with minIO as object storage\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"https://sparkbyexamples.com/spark/spark-read-text-file-from-s3/\"\u003ehttps://sparkbyexamples.com/spark/spark-read-text-file-from-s3/\u003c/a\u003e: Spark Read Text File from AWS S3 bucket :+1:\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629894672218_911204203",
+      "id": "paragraph_1629894672218_911204203",
+      "dateCreated": "2021-08-25 09:31:12.218",
+      "dateStarted": "2021-08-26 15:06:06.425",
+      "dateFinished": "2021-08-26 15:06:06.434",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.sql.Row\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}\n\nsc.hadoopConfiguration.set(\"fs.s3n.awsAccessKeyId\", \"OHF1FLX5XGNV2A25FTU1\")\nsc.hadoopConfiguration.set(\"fs.s3n.awsSecretAccessKey\", \"0dWgt0fpmQI2yf8iin+k+fAH7MRmyNwkb2JHe8R9\")\nval myRDD \u003d sc.textFile(\"s3a://dev-env-data/test-data/sample_data.csv\")\nmyRDD.count\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-26 15:21:29.282",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.nio.file.AccessDeniedException: dev-env-data: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider InstanceProfileCredentialsProvider : com.amazonaws.SdkClientException: Unable to load credentials from service endpoint\n  at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:187)\n  at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:111)\n  at org.apache.hadoop.fs.s3a.Invoker.lambda$retry$3(Invoker.java:265)\n  at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:322)\n  at org.apache.hadoop.fs.s3a.Invoker.retry(Invoker.java:261)\n  at org.apache.hadoop.fs.s3a.Invoker.retry(Invoker.java:236)\n  at org.apache.hadoop.fs.s3a.S3AFileSystem.verifyBucketExists(S3AFileSystem.java:391)\n  at org.apache.hadoop.fs.s3a.S3AFileSystem.initialize(S3AFileSystem.java:322)\n  at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:3303)\n  at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:124)\n  at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:3352)\n  at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:3320)\n  at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:479)\n  at org.apache.hadoop.fs.Path.getFileSystem(Path.java:361)\n  at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:268)\n  at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:239)\n  at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:325)\n  at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:205)\n  at org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:300)\n  at scala.Option.getOrElse(Option.scala:189)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:296)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:300)\n  at scala.Option.getOrElse(Option.scala:189)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:296)\n  at org.apache.spark.SparkContext.runJob(SparkContext.scala:2261)\n  at org.apache.spark.rdd.RDD.count(RDD.scala:1253)\n  ... 44 elided\nCaused by: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider InstanceProfileCredentialsProvider : com.amazonaws.SdkClientException: Unable to load credentials from service endpoint\n  at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:159)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.getCredentialsFromContext(AmazonHttpClient.java:1225)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.runBeforeRequestHandlers(AmazonHttpClient.java:801)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:751)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:744)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:726)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:686)\n  at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:668)\n  at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:532)\n  at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:512)\n  at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4920)\n  at com.amazonaws.services.s3.AmazonS3Client.getBucketRegionViaHeadRequest(AmazonS3Client.java:5700)\n  at com.amazonaws.services.s3.AmazonS3Client.fetchRegionFromCache(AmazonS3Client.java:5673)\n  at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4904)\n  at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4866)\n  at com.amazonaws.services.s3.AmazonS3Client.headBucket(AmazonS3Client.java:1394)\n  at com.amazonaws.services.s3.AmazonS3Client.doesBucketExist(AmazonS3Client.java:1333)\n  at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$verifyBucketExists$1(S3AFileSystem.java:392)\n  at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:109)\n  ... 69 more\nCaused by: com.amazonaws.SdkClientException: Unable to load credentials from service endpoint\n  at com.amazonaws.auth.EC2CredentialsFetcher.handleError(EC2CredentialsFetcher.java:183)\n  at com.amazonaws.auth.EC2CredentialsFetcher.fetchCredentials(EC2CredentialsFetcher.java:162)\n  at com.amazonaws.auth.EC2CredentialsFetcher.getCredentials(EC2CredentialsFetcher.java:82)\n  at com.amazonaws.auth.InstanceProfileCredentialsProvider.getCredentials(InstanceProfileCredentialsProvider.java:172)\n  at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:137)\n  ... 87 more\nCaused by: java.net.ConnectException: Connection refused (Connection refused)\n  at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)\n  at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)\n  at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)\n  at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)\n  at java.base/java.net.Socket.connect(Socket.java:609)\n  at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)\n  at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)\n  at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)\n  at java.base/sun.net.www.http.HttpClient.\u003cinit\u003e(HttpClient.java:242)\n  at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)\n  at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)\n  at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)\n  at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)\n  at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)\n  at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)\n  at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:54)\n  at com.amazonaws.internal.EC2CredentialsUtils.readResource(EC2CredentialsUtils.java:113)\n  at com.amazonaws.internal.EC2CredentialsUtils.readResource(EC2CredentialsUtils.java:82)\n  at com.amazonaws.auth.InstanceProfileCredentialsProvider$InstanceMetadataCredentialsEndpointProvider.getCredentialsEndpoint(InstanceProfileCredentialsProvider.java:197)\n  at com.amazonaws.auth.EC2CredentialsFetcher.fetchCredentials(EC2CredentialsFetcher.java:122)\n  ... 90 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629918355756_1904582236",
+      "id": "paragraph_1629918355756_1904582236",
+      "dateCreated": "2021-08-25 16:05:55.757",
+      "dateStarted": "2021-08-26 15:21:25.830",
+      "dateFinished": "2021-08-26 15:21:31.333",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark.pyspark\n\nfrom pyspark import SparkContext\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import StringType\nfrom pyspark import SQLContext\nfrom itertools import islice\nfrom pyspark.sql.functions import col\n\n# add aws credentials\nsc._jsc.hadoopConfiguration().set(\"fs.s3n.awsAccessKeyId\", \"[ACCESS KEY]\")\nsc._jsc.hadoopConfiguration().set(\"fs.s3n.awsSecretAccessKey\", \"[SECRET KEY]\")\nsc._jsc.hadoopConfiguration().set(\"fs.s3a.impl\", \"org.apache.hadoop.fs.s3a.S3AFileSystem\")\n\n#creating the context\nsqlContext \u003d SQLContext(sc)\n\n#reading the first csv file and store it in an RDD\nrdd1\u003d sc.textFile(\"s3a://filepath/baby-names.csv\").map(lambda line: line.split(\",\"))\n\nrdd1 \u003d rdd1.mapPartitionsWithIndex(\nlambda idx, it: islice(it, 1, None) if idx \u003d\u003d 0 else it\n)\n\n#converting the RDD into a dataframe\ndf1 \u003d rdd1.toDF([\u0027year\u0027,\u0027name\u0027, \u0027percent\u0027, \u0027sex\u0027])\n\n#print the dataframe\ndf1.show()\n\n\nprint(\"\u003d\u003d\u003d\u003d\u003d\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-02 15:25:41.453",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[0;31mPy4JJavaError\u001b[0m                             Traceback (most recent call last)\n\u001b[0;32m/tmp/ipykernel_914/2501415003.py\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m\u001b[0m\n\u001b[1;32m     23\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     24\u001b[0m \u001b[0;31m#converting the RDD into a dataframe\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 25\u001b[0;31m \u001b[0mdf1\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mrdd1\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtoDF\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\u0027year\u0027\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u0027name\u0027\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\u0027percent\u0027\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\u0027sex\u0027\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     26\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     27\u001b[0m \u001b[0;31m#print the dataframe\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/session.py\u001b[0m in \u001b[0;36mtoDF\u001b[0;34m(self, schema, sampleRatio)\u001b[0m\n\u001b[1;32m     64\u001b[0m         \u001b[0;34m[\u001b[0m\u001b[0mRow\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mname\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0;34m\u0027Alice\u0027\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mage\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     65\u001b[0m         \"\"\"\n\u001b[0;32m---\u003e 66\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0msparkSession\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcreateDataFrame\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msampleRatio\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     67\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     68\u001b[0m     \u001b[0mRDD\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtoDF\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mtoDF\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/session.py\u001b[0m in \u001b[0;36mcreateDataFrame\u001b[0;34m(self, data, schema, samplingRatio, verifySchema)\u001b[0m\n\u001b[1;32m    673\u001b[0m             return super(SparkSession, self).createDataFrame(\n\u001b[1;32m    674\u001b[0m                 data, schema, samplingRatio, verifySchema)\n\u001b[0;32m--\u003e 675\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_create_dataframe\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msamplingRatio\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mverifySchema\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    676\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    677\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_create_dataframe\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msamplingRatio\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mverifySchema\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/session.py\u001b[0m in \u001b[0;36m_create_dataframe\u001b[0;34m(self, data, schema, samplingRatio, verifySchema)\u001b[0m\n\u001b[1;32m    696\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    697\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mRDD\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 698\u001b[0;31m             \u001b[0mrdd\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_createFromRDD\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mprepare\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msamplingRatio\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    699\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    700\u001b[0m             \u001b[0mrdd\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_createFromLocal\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mprepare\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mschema\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/session.py\u001b[0m in \u001b[0;36m_createFromRDD\u001b[0;34m(self, rdd, schema, samplingRatio)\u001b[0m\n\u001b[1;32m    484\u001b[0m         \"\"\"\n\u001b[1;32m    485\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mschema\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mNone\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mschema\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0mlist\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtuple\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 486\u001b[0;31m             \u001b[0mstruct\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_inferSchema\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrdd\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msamplingRatio\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnames\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0mschema\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    487\u001b[0m             \u001b[0mconverter\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0m_create_converter\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstruct\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    488\u001b[0m             \u001b[0mrdd\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mrdd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mconverter\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/session.py\u001b[0m in \u001b[0;36m_inferSchema\u001b[0;34m(self, rdd, samplingRatio, names)\u001b[0m\n\u001b[1;32m    458\u001b[0m         \u001b[0;34m:\u001b[0m\u001b[0;32mclass\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;31m`\u001b[0m\u001b[0mpyspark\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msql\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtypes\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mStructType\u001b[0m\u001b[0;31m`\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    459\u001b[0m         \"\"\"\n\u001b[0;32m--\u003e 460\u001b[0;31m         \u001b[0mfirst\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mrdd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfirst\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    461\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mfirst\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    462\u001b[0m             raise ValueError(\"The first row in RDD is empty, \"\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/rdd.py\u001b[0m in \u001b[0;36mfirst\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m   1584\u001b[0m         \u001b[0mValueError\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mRDD\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0mempty\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1585\u001b[0m         \"\"\"\n\u001b[0;32m-\u003e 1586\u001b[0;31m         \u001b[0mrs\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtake\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1587\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mrs\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1588\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0mrs\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/rdd.py\u001b[0m in \u001b[0;36mtake\u001b[0;34m(self, num)\u001b[0m\n\u001b[1;32m   1531\u001b[0m         \"\"\"\n\u001b[1;32m   1532\u001b[0m         \u001b[0mitems\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1533\u001b[0;31m         \u001b[0mtotalParts\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgetNumPartitions\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1534\u001b[0m         \u001b[0mpartsScanned\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1535\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/rdd.py\u001b[0m in \u001b[0;36mgetNumPartitions\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m   2933\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2934\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mgetNumPartitions\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 2935\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_prev_jrdd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpartitions\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msize\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2936\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2937\u001b[0m     \u001b[0;34m@\u001b[0m\u001b[0mproperty\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1302\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1303\u001b[0m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1304\u001b[0;31m         return_value \u003d get_return_value(\n\u001b[0m\u001b[1;32m   1305\u001b[0m             answer, self.gateway_client, self.target_id, self.name)\n\u001b[1;32m   1306\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\u001b[0m in \u001b[0;36mdeco\u001b[0;34m(*a, **kw)\u001b[0m\n\u001b[1;32m    109\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdeco\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    110\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 111\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    112\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mpy4j\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprotocol\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPy4JJavaError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    113\u001b[0m             \u001b[0mconverted\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mconvert_exception\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjava_exception\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/py4j-0.10.9-src.zip/py4j/protocol.py\u001b[0m in \u001b[0;36mget_return_value\u001b[0;34m(answer, gateway_client, target_id, name)\u001b[0m\n\u001b[1;32m    324\u001b[0m             \u001b[0mvalue\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mOUTPUT_CONVERTER\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mtype\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0manswer\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgateway_client\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    325\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0manswer\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0mREFERENCE_TYPE\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 326\u001b[0;31m                 raise Py4JJavaError(\n\u001b[0m\u001b[1;32m    327\u001b[0m                     \u001b[0;34m\"An error occurred while calling {0}{1}{2}.\\n\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    328\u001b[0m                     format(target_id, \".\", name), value)\n\n\u001b[0;31mPy4JJavaError\u001b[0m: An error occurred while calling o88.partitions.\n: org.apache.hadoop.fs.s3a.UnknownStoreException: s3a://filepath/baby-names.csv\n\tat org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:257)\n\tat org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:170)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3348)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3185)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.getFileStatus(S3AFileSystem.java:3053)\n\tat org.apache.hadoop.fs.Globber.getFileStatus(Globber.java:115)\n\tat org.apache.hadoop.fs.Globber.doGlob(Globber.java:349)\n\tat org.apache.hadoop.fs.Globber.glob(Globber.java:202)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.globStatus(S3AFileSystem.java:4253)\n\tat org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:276)\n\tat org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:244)\n\tat org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:332)\n\tat org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:205)\n\tat org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:300)\n\tat scala.Option.getOrElse(Option.scala:189)\n\tat org.apache.spark.rdd.RDD.partitions(RDD.scala:296)\n\tat org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n\tat org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:300)\n\tat scala.Option.getOrElse(Option.scala:189)\n\tat org.apache.spark.rdd.RDD.partitions(RDD.scala:296)\n\tat org.apache.spark.api.java.JavaRDDLike.partitions(JavaRDDLike.scala:61)\n\tat org.apache.spark.api.java.JavaRDDLike.partitions$(JavaRDDLike.scala:61)\n\tat org.apache.spark.api.java.AbstractJavaRDDLike.partitions(JavaRDDLike.scala:45)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:238)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\nCaused by: com.amazonaws.services.s3.model.AmazonS3Exception: The specified bucket does not exist (Service: Amazon S3; Status Code: 404; Error Code: NoSuchBucket; Request ID: 16A1148EAF216308; S3 Extended Request ID: a02541b8-5400-4723-805a-3af7549d81ea; Proxy: null), S3 Extended Request ID: a02541b8-5400-4723-805a-3af7549d81ea\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleErrorResponse(AmazonHttpClient.java:1828)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleServiceErrorResponse(AmazonHttpClient.java:1412)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeOneRequest(AmazonHttpClient.java:1374)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeHelper(AmazonHttpClient.java:1145)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:802)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:770)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:744)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:704)\n\tat com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:686)\n\tat com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:550)\n\tat com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:530)\n\tat com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5227)\n\tat com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5173)\n\tat com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5167)\n\tat com.amazonaws.services.s3.AmazonS3Client.listObjectsV2(AmazonS3Client.java:963)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$listObjects$7(S3AFileSystem.java:2116)\n\tat org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:489)\n\tat org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:412)\n\tat org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:375)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.listObjects(S3AFileSystem.java:2107)\n\tat org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3322)\n\t... 31 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629838508022_246012307",
+      "id": "paragraph_1629838508022_246012307",
+      "dateCreated": "2021-08-24 17:55:08.022",
+      "dateStarted": "2021-09-02 15:25:41.469",
+      "dateFinished": "2021-09-02 15:25:43.443",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark.pyspark\n\n# create DataFrame from python list. It can infer schema for you.\ndf1 \u003d spark.createDataFrame([(1, \"andy\", 20, \"USA\"), \n                            (2, \"jeff\", 23, \"China\"), \n                            (3, \"james\", 18, \"USA\")]).toDF(\"id\", \"name\", \"age\", \"country\")\ndf1.printSchema()\ndf1.show()\n\n# create DataFrame from pandas dataframe\ndf2 \u003d spark.createDataFrame(df1.toPandas())\ndf2.printSchema()\ndf2.show()\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-02 15:25:49.707",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- id: long (nullable \u003d true)\n |-- name: string (nullable \u003d true)\n |-- age: long (nullable \u003d true)\n |-- country: string (nullable \u003d true)\n\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[0;31mPy4JJavaError\u001b[0m                             Traceback (most recent call last)\n\u001b[0;32m/tmp/ipykernel_914/639863209.py\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m\u001b[0m\n\u001b[1;32m      4\u001b[0m                             (3, \"james\", 18, \"USA\")]).toDF(\"id\", \"name\", \"age\", \"country\")\n\u001b[1;32m      5\u001b[0m \u001b[0mdf1\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprintSchema\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----\u003e 6\u001b[0;31m \u001b[0mdf1\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshow\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;31m# create DataFrame from pandas dataframe\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/dataframe.py\u001b[0m in \u001b[0;36mshow\u001b[0;34m(self, n, truncate, vertical)\u001b[0m\n\u001b[1;32m    482\u001b[0m         \"\"\"\n\u001b[1;32m    483\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtruncate\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mbool\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0mtruncate\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 484\u001b[0;31m             \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshowString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mn\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m20\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvertical\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    485\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    486\u001b[0m             \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshowString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mn\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtruncate\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvertical\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1302\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1303\u001b[0m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1304\u001b[0;31m         return_value \u003d get_return_value(\n\u001b[0m\u001b[1;32m   1305\u001b[0m             answer, self.gateway_client, self.target_id, self.name)\n\u001b[1;32m   1306\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\u001b[0m in \u001b[0;36mdeco\u001b[0;34m(*a, **kw)\u001b[0m\n\u001b[1;32m    109\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdeco\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    110\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 111\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkw\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    112\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mpy4j\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mprotocol\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPy4JJavaError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    113\u001b[0m             \u001b[0mconverted\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mconvert_exception\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjava_exception\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/spark/python/lib/py4j-0.10.9-src.zip/py4j/protocol.py\u001b[0m in \u001b[0;36mget_return_value\u001b[0;34m(answer, gateway_client, target_id, name)\u001b[0m\n\u001b[1;32m    324\u001b[0m             \u001b[0mvalue\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mOUTPUT_CONVERTER\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mtype\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0manswer\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgateway_client\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    325\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0manswer\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0mREFERENCE_TYPE\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 326\u001b[0;31m                 raise Py4JJavaError(\n\u001b[0m\u001b[1;32m    327\u001b[0m                     \u001b[0;34m\"An error occurred while calling {0}{1}{2}.\\n\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    328\u001b[0m                     format(target_id, \".\", name), value)\n\n\u001b[0;31mPy4JJavaError\u001b[0m: An error occurred while calling o108.showString.\n: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 4.0 failed 4 times, most recent failure: Lost task 0.3 in stage 4.0 (TID 7) (172.20.0.16 executor 2): org.apache.spark.repl.RemoteClassLoaderError: org.apache.spark.sql.catalyst.expressions.Object\n\tat org.apache.spark.repl.ExecutorClassLoader.findClass(ExecutorClassLoader.scala:120)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:576)\n\tat org.apache.spark.util.ParentClassLoader.loadClass(ParentClassLoader.java:40)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)\n\tat java.base/java.lang.Class.forName0(Native Method)\n\tat java.base/java.lang.Class.forName(Class.java:398)\n\tat org.codehaus.janino.ClassLoaderIClassLoader.findIClass(ClassLoaderIClassLoader.java:89)\n\tat org.codehaus.janino.IClassLoader.loadIClass(IClassLoader.java:317)\n\tat org.codehaus.janino.UnitCompiler.findTypeByName(UnitCompiler.java:8618)\n\tat org.codehaus.janino.UnitCompiler.getReferenceType(UnitCompiler.java:6771)\n\tat org.codehaus.janino.UnitCompiler.getReferenceType(UnitCompiler.java:6620)\n\tat org.codehaus.janino.UnitCompiler.getType2(UnitCompiler.java:6599)\n\tat org.codehaus.janino.UnitCompiler.access$14300(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$22$1.visitReferenceType(UnitCompiler.java:6502)\n\tat org.codehaus.janino.UnitCompiler$22$1.visitReferenceType(UnitCompiler.java:6497)\n\tat org.codehaus.janino.Java$ReferenceType.accept(Java.java:4134)\n\tat org.codehaus.janino.UnitCompiler$22.visitType(UnitCompiler.java:6497)\n\tat org.codehaus.janino.UnitCompiler$22.visitType(UnitCompiler.java:6490)\n\tat org.codehaus.janino.Java$ReferenceType.accept(Java.java:4133)\n\tat org.codehaus.janino.UnitCompiler.getType(UnitCompiler.java:6490)\n\tat org.codehaus.janino.UnitCompiler.getReturnType(UnitCompiler.java:10291)\n\tat org.codehaus.janino.UnitCompiler.access$19300(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$36.getReturnType(UnitCompiler.java:10500)\n\tat org.codehaus.janino.IClass$IMethod.getDescriptor2(IClass.java:1224)\n\tat org.codehaus.janino.IClass$IInvocable.getDescriptor(IClass.java:982)\n\tat org.codehaus.janino.IClass.getIMethods(IClass.java:248)\n\tat org.codehaus.janino.IClass.getIMethods(IClass.java:237)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:470)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:410)\n\tat org.codehaus.janino.UnitCompiler.access$400(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$2.visitPackageMemberClassDeclaration(UnitCompiler.java:389)\n\tat org.codehaus.janino.UnitCompiler$2.visitPackageMemberClassDeclaration(UnitCompiler.java:384)\n\tat org.codehaus.janino.Java$PackageMemberClassDeclaration.accept(Java.java:1594)\n\tat org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:384)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:362)\n\tat org.codehaus.janino.UnitCompiler.access$000(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$1.visitCompilationUnit(UnitCompiler.java:336)\n\tat org.codehaus.janino.UnitCompiler$1.visitCompilationUnit(UnitCompiler.java:333)\n\tat org.codehaus.janino.Java$CompilationUnit.accept(Java.java:363)\n\tat org.codehaus.janino.UnitCompiler.compileUnit(UnitCompiler.java:333)\n\tat org.codehaus.janino.SimpleCompiler.cook(SimpleCompiler.java:235)\n\tat org.codehaus.janino.SimpleCompiler.compileToClassLoader(SimpleCompiler.java:464)\n\tat org.codehaus.janino.ClassBodyEvaluator.compileToClass(ClassBodyEvaluator.java:314)\n\tat org.codehaus.janino.ClassBodyEvaluator.cook(ClassBodyEvaluator.java:237)\n\tat org.codehaus.janino.SimpleCompiler.cook(SimpleCompiler.java:205)\n\tat org.codehaus.commons.compiler.Cookable.cook(Cookable.java:80)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$.org$apache$spark$sql$catalyst$expressions$codegen$CodeGenerator$$doCompile(CodeGenerator.scala:1404)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:1501)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:1498)\n\tat org.sparkproject.guava.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.get(LocalCache.java:2257)\n\tat org.sparkproject.guava.cache.LocalCache.get(LocalCache.java:4000)\n\tat org.sparkproject.guava.cache.LocalCache.getOrLoad(LocalCache.java:4004)\n\tat org.sparkproject.guava.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4874)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$.compile(CodeGenerator.scala:1352)\n\tat org.apache.spark.sql.execution.WholeStageCodegenExec.$anonfun$doExecute$4(WholeStageCodegenExec.scala:750)\n\tat org.apache.spark.sql.execution.WholeStageCodegenExec.$anonfun$doExecute$4$adapted(WholeStageCodegenExec.scala:749)\n\tat org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:915)\n\tat org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:915)\n\tat org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:337)\n\tat org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:337)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:131)\n\tat org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:497)\n\tat org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1439)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:500)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\nCaused by: java.io.IOException: Failed to connect to zeppelin.bdb/172.20.0.4:39509\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:287)\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.downloadClient(NettyRpcEnv.scala:399)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$openChannel$4(NettyRpcEnv.scala:367)\n\tat scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n\tat org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1473)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.openChannel(NettyRpcEnv.scala:366)\n\tat org.apache.spark.repl.ExecutorClassLoader.getClassFileInputStreamFromSparkRPC(ExecutorClassLoader.scala:135)\n\tat org.apache.spark.repl.ExecutorClassLoader.$anonfun$fetchFn$1(ExecutorClassLoader.scala:66)\n\tat org.apache.spark.repl.ExecutorClassLoader.findClassLocally(ExecutorClassLoader.scala:176)\n\tat org.apache.spark.repl.ExecutorClassLoader.findClass(ExecutorClassLoader.scala:113)\n\t... 75 more\nCaused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: zeppelin.bdb/172.20.0.4:39509\nCaused by: java.net.ConnectException: Connection refused\n\tat java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)\n\tat java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)\n\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)\n\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\n\nDriver stacktrace:\n\tat org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2258)\n\tat org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2207)\n\tat org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2206)\n\tat scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)\n\tat scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)\n\tat scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)\n\tat org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2206)\n\tat org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1079)\n\tat org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1079)\n\tat scala.Option.foreach(Option.scala:407)\n\tat org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1079)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2445)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2387)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2376)\n\tat org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)\n\tat org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:868)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2196)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2217)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:2236)\n\tat org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:472)\n\tat org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:425)\n\tat org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:47)\n\tat org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:3696)\n\tat org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:2722)\n\tat org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:3687)\n\tat org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)\n\tat org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)\n\tat org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)\n\tat org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)\n\tat org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)\n\tat org.apache.spark.sql.Dataset.withAction(Dataset.scala:3685)\n\tat org.apache.spark.sql.Dataset.head(Dataset.scala:2722)\n\tat org.apache.spark.sql.Dataset.take(Dataset.scala:2929)\n\tat org.apache.spark.sql.Dataset.getRows(Dataset.scala:301)\n\tat org.apache.spark.sql.Dataset.showString(Dataset.scala:338)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:238)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\nCaused by: org.apache.spark.repl.RemoteClassLoaderError: org.apache.spark.sql.catalyst.expressions.Object\n\tat org.apache.spark.repl.ExecutorClassLoader.findClass(ExecutorClassLoader.scala:120)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:576)\n\tat org.apache.spark.util.ParentClassLoader.loadClass(ParentClassLoader.java:40)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)\n\tat java.base/java.lang.Class.forName0(Native Method)\n\tat java.base/java.lang.Class.forName(Class.java:398)\n\tat org.codehaus.janino.ClassLoaderIClassLoader.findIClass(ClassLoaderIClassLoader.java:89)\n\tat org.codehaus.janino.IClassLoader.loadIClass(IClassLoader.java:317)\n\tat org.codehaus.janino.UnitCompiler.findTypeByName(UnitCompiler.java:8618)\n\tat org.codehaus.janino.UnitCompiler.getReferenceType(UnitCompiler.java:6771)\n\tat org.codehaus.janino.UnitCompiler.getReferenceType(UnitCompiler.java:6620)\n\tat org.codehaus.janino.UnitCompiler.getType2(UnitCompiler.java:6599)\n\tat org.codehaus.janino.UnitCompiler.access$14300(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$22$1.visitReferenceType(UnitCompiler.java:6502)\n\tat org.codehaus.janino.UnitCompiler$22$1.visitReferenceType(UnitCompiler.java:6497)\n\tat org.codehaus.janino.Java$ReferenceType.accept(Java.java:4134)\n\tat org.codehaus.janino.UnitCompiler$22.visitType(UnitCompiler.java:6497)\n\tat org.codehaus.janino.UnitCompiler$22.visitType(UnitCompiler.java:6490)\n\tat org.codehaus.janino.Java$ReferenceType.accept(Java.java:4133)\n\tat org.codehaus.janino.UnitCompiler.getType(UnitCompiler.java:6490)\n\tat org.codehaus.janino.UnitCompiler.getReturnType(UnitCompiler.java:10291)\n\tat org.codehaus.janino.UnitCompiler.access$19300(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$36.getReturnType(UnitCompiler.java:10500)\n\tat org.codehaus.janino.IClass$IMethod.getDescriptor2(IClass.java:1224)\n\tat org.codehaus.janino.IClass$IInvocable.getDescriptor(IClass.java:982)\n\tat org.codehaus.janino.IClass.getIMethods(IClass.java:248)\n\tat org.codehaus.janino.IClass.getIMethods(IClass.java:237)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:470)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:410)\n\tat org.codehaus.janino.UnitCompiler.access$400(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$2.visitPackageMemberClassDeclaration(UnitCompiler.java:389)\n\tat org.codehaus.janino.UnitCompiler$2.visitPackageMemberClassDeclaration(UnitCompiler.java:384)\n\tat org.codehaus.janino.Java$PackageMemberClassDeclaration.accept(Java.java:1594)\n\tat org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:384)\n\tat org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:362)\n\tat org.codehaus.janino.UnitCompiler.access$000(UnitCompiler.java:226)\n\tat org.codehaus.janino.UnitCompiler$1.visitCompilationUnit(UnitCompiler.java:336)\n\tat org.codehaus.janino.UnitCompiler$1.visitCompilationUnit(UnitCompiler.java:333)\n\tat org.codehaus.janino.Java$CompilationUnit.accept(Java.java:363)\n\tat org.codehaus.janino.UnitCompiler.compileUnit(UnitCompiler.java:333)\n\tat org.codehaus.janino.SimpleCompiler.cook(SimpleCompiler.java:235)\n\tat org.codehaus.janino.SimpleCompiler.compileToClassLoader(SimpleCompiler.java:464)\n\tat org.codehaus.janino.ClassBodyEvaluator.compileToClass(ClassBodyEvaluator.java:314)\n\tat org.codehaus.janino.ClassBodyEvaluator.cook(ClassBodyEvaluator.java:237)\n\tat org.codehaus.janino.SimpleCompiler.cook(SimpleCompiler.java:205)\n\tat org.codehaus.commons.compiler.Cookable.cook(Cookable.java:80)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$.org$apache$spark$sql$catalyst$expressions$codegen$CodeGenerator$$doCompile(CodeGenerator.scala:1404)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:1501)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:1498)\n\tat org.sparkproject.guava.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)\n\tat org.sparkproject.guava.cache.LocalCache$Segment.get(LocalCache.java:2257)\n\tat org.sparkproject.guava.cache.LocalCache.get(LocalCache.java:4000)\n\tat org.sparkproject.guava.cache.LocalCache.getOrLoad(LocalCache.java:4004)\n\tat org.sparkproject.guava.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4874)\n\tat org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$.compile(CodeGenerator.scala:1352)\n\tat org.apache.spark.sql.execution.WholeStageCodegenExec.$anonfun$doExecute$4(WholeStageCodegenExec.scala:750)\n\tat org.apache.spark.sql.execution.WholeStageCodegenExec.$anonfun$doExecute$4$adapted(WholeStageCodegenExec.scala:749)\n\tat org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:915)\n\tat org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:915)\n\tat org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:337)\n\tat org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:337)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:131)\n\tat org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:497)\n\tat org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1439)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:500)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\t... 1 more\nCaused by: java.io.IOException: Failed to connect to zeppelin.bdb/172.20.0.4:39509\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:287)\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)\n\tat org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.downloadClient(NettyRpcEnv.scala:399)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$openChannel$4(NettyRpcEnv.scala:367)\n\tat scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n\tat org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1473)\n\tat org.apache.spark.rpc.netty.NettyRpcEnv.openChannel(NettyRpcEnv.scala:366)\n\tat org.apache.spark.repl.ExecutorClassLoader.getClassFileInputStreamFromSparkRPC(ExecutorClassLoader.scala:135)\n\tat org.apache.spark.repl.ExecutorClassLoader.$anonfun$fetchFn$1(ExecutorClassLoader.scala:66)\n\tat org.apache.spark.repl.ExecutorClassLoader.findClassLocally(ExecutorClassLoader.scala:176)\n\tat org.apache.spark.repl.ExecutorClassLoader.findClass(ExecutorClassLoader.scala:113)\n\t... 75 more\nCaused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: zeppelin.bdb/172.20.0.4:39509\nCaused by: java.net.ConnectException: Connection refused\n\tat java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)\n\tat java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)\n\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)\n\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin.bdb:4041/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629828299376_1507283319",
+      "id": "paragraph_1629828299376_1507283319",
+      "dateCreated": "2021-08-24 15:04:59.376",
+      "dateStarted": "2021-09-02 15:25:49.725",
+      "dateFinished": "2021-09-02 15:26:07.884",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-24 15:05:04.025",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1629828304025_506542941",
+      "id": "paragraph_1629828304025_506542941",
+      "dateCreated": "2021-08-24 15:05:04.025",
+      "status": "READY"
+    }
+  ],
+  "name": "S3 sample",
+  "id": "2GGKWYEAG",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

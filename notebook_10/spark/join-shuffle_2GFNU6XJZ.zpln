@@ -1,0 +1,135 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n   * https://youtu.be/vswrfVkP10Y: Spark Join and shuffle | Understanding the Internals of Spark Join | How Spark Shuffle works",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-31 12:15:44.009",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://youtu.be/vswrfVkP10Y\"\u003ehttps://youtu.be/vswrfVkP10Y\u003c/a\u003e: Spark Join and shuffle | Understanding the Internals of Spark Join | How Spark Shuffle works\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630422863413_469438148",
+      "id": "paragraph_1630422863413_469438148",
+      "dateCreated": "2021-08-31 12:14:23.413",
+      "dateStarted": "2021-08-31 12:15:44.030",
+      "dateFinished": "2021-08-31 12:15:44.046",
+      "status": "FINISHED"
+    },
+    {
+      "text": "print(sc.version)\nprint(\"\\n\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:04:15.271",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "3.1.2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630417947169_54554940",
+      "id": "paragraph_1630417947169_54554940",
+      "dateCreated": "2021-08-31 10:52:27.169",
+      "dateStarted": "2021-09-21 15:04:15.286",
+      "dateFinished": "2021-09-21 15:04:15.538",
+      "status": "FINISHED"
+    },
+    {
+      "text": "\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-08-31 12:15:44.440",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1630417967629_1517500267",
+      "id": "paragraph_1630417967629_1517500267",
+      "dateCreated": "2021-08-31 10:52:47.629",
+      "dateStarted": "2021-08-31 12:15:44.455",
+      "dateFinished": "2021-08-31 12:15:44.703",
+      "status": "FINISHED"
+    }
+  ],
+  "name": "join-shuffle",
+  "id": "2GFNU6XJZ",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

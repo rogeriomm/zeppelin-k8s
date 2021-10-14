@@ -1,0 +1,269 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n   * https://community.cloudera.com/t5/Support-Questions/How-can-I-use-Spark-to-empty-delete-data-from-an-S3-bucket/td-p/135964: How can I use Spark to empty/delete data from an S3 bucket?",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.058",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://community.cloudera.com/t5/Support-Questions/How-can-I-use-Spark-to-empty-delete-data-from-an-S3-bucket/td-p/135964\"\u003ehttps://community.cloudera.com/t5/Support-Questions/How-can-I-use-Spark-to-empty-delete-data-from-an-S3-bucket/td-p/135964\u003c/a\u003e: How can I use Spark to empty/delete data from an S3 bucket?\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177058_256173135",
+      "id": "paragraph_1631731113781_723086363",
+      "dateCreated": "2021-09-21 15:16:17.058",
+      "status": "READY"
+    },
+    {
+      "text": "%sh\n\nhdfs dfs -rm -r -skipTrash s3a://teste/credential2.json",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.058",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "-rm: Fatal internal error\njava.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found\n\tat org.apache.hadoop.conf.Configuration.getClass(Configuration.java:2667)\n\tat org.apache.hadoop.fs.FileSystem.getFileSystemClass(FileSystem.java:3431)\n\tat org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:3466)\n\tat org.apache.hadoop.fs.FileSystem.access$300(FileSystem.java:174)\n\tat org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:3574)\n\tat org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:3521)\n\tat org.apache.hadoop.fs.FileSystem.get(FileSystem.java:540)\n\tat org.apache.hadoop.fs.Path.getFileSystem(Path.java:365)\n\tat org.apache.hadoop.fs.shell.PathData.expandAsGlob(PathData.java:352)\n\tat org.apache.hadoop.fs.shell.Command.expandArgument(Command.java:250)\n\tat org.apache.hadoop.fs.shell.Delete$Rm.expandArgument(Delete.java:94)\n\tat org.apache.hadoop.fs.shell.Command.expandArguments(Command.java:233)\n\tat org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:105)\n\tat org.apache.hadoop.fs.shell.Command.run(Command.java:177)\n\tat org.apache.hadoop.fs.FsShell.run(FsShell.java:327)\n\tat org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)\n\tat org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)\n\tat org.apache.hadoop.fs.FsShell.main(FsShell.java:390)\nCaused by: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found\n\tat org.apache.hadoop.conf.Configuration.getClassByName(Configuration.java:2571)\n\tat org.apache.hadoop.conf.Configuration.getClass(Configuration.java:2665)\n\t... 17 more\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 255"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177058_1964990318",
+      "id": "paragraph_1631732542655_2044840185",
+      "dateCreated": "2021-09-21 15:16:17.058",
+      "status": "READY"
+    },
+    {
+      "text": "\nsc.hadoopConfiguration.set(\"fs.s3a.path.style.access\", \"True\")\nsc.hadoopConfiguration.set(\"fs.s3a.endpoint\", \"http://nginx.bdb:9000\") // endpoint !!!!!MUST!!!! have dot character\".\"\nsc.hadoopConfiguration.set(\"fs.s3a.access.key\", \"GBKLR3RJ8FRV3DZH6SIU\")\nsc.hadoopConfiguration.set(\"fs.s3a.secret.key\", \"RDqx3+bgBcEpb36eqkvrO9gPfcmcUkyuHriTgclQ\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.059",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177058_1167661528",
+      "id": "paragraph_1631729020753_1341360612",
+      "dateCreated": "2021-09-21 15:16:17.059",
+      "status": "READY"
+    },
+    {
+      "text": "val sonnets \u003d sc.textFile(\"s3a://teste/credentials.json\")\n\n\nval counts \u003d sonnets.flatMap(line \u003d\u003e line.split(\" \")).map(word \u003d\u003e (word, 1)).reduceByKey(_ + _)\ncounts.saveAsTextFile(\"s3a://teste/credential2.json\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.059",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory s3a://teste/credential2.json already exists\n  at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)\n  at org.apache.spark.internal.io.HadoopMapRedWriteConfigUtil.assertConf(SparkHadoopWriter.scala:298)\n  at org.apache.spark.internal.io.SparkHadoopWriter$.write(SparkHadoopWriter.scala:71)\n  at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopDataset$1(PairRDDFunctions.scala:1090)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:1088)\n  at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$4(PairRDDFunctions.scala:1061)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1026)\n  at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$3(PairRDDFunctions.scala:1008)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1007)\n  at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$2(PairRDDFunctions.scala:964)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:962)\n  at org.apache.spark.rdd.RDD.$anonfun$saveAsTextFile$2(RDD.scala:1578)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1578)\n  at org.apache.spark.rdd.RDD.$anonfun$saveAsTextFile$1(RDD.scala:1564)\n  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:414)\n  at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1564)\n  ... 45 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177059_1963686230",
+      "id": "paragraph_1631729032836_64084664",
+      "dateCreated": "2021-09-21 15:16:17.059",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n   * https://kb.databricks.com/data/list-delete-files-faster.html: How to list and delete files faster in Databricks",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.059",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"https://kb.databricks.com/data/list-delete-files-faster.html\"\u003ehttps://kb.databricks.com/data/list-delete-files-faster.html\u003c/a\u003e: How to list and delete files faster in Databricks\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177059_1189430315",
+      "id": "paragraph_1631731479715_1485555573",
+      "dateCreated": "2021-09-21 15:16:17.059",
+      "status": "READY"
+    },
+    {
+      "text": "import org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nimport org.apache.spark.deploy.SparkHadoopUtil\nimport org.apache.spark.sql.execution.datasources.InMemoryFileIndex\nimport java.net.URI\n\ndef listFiles(basep: String, globp: String): Seq[String] \u003d {\n  val conf \u003d new Configuration(sc.hadoopConfiguration)\n  val fs \u003d FileSystem.get(new URI(basep), conf)\n\n  def validated(path: String): Path \u003d {\n    if(path startsWith \"/\") new Path(path)\n    else new Path(\"/\" + path)\n  }\n\n  val fileCatalog \u003d InMemoryFileIndex.bulkListLeafFiles(\n    paths \u003d SparkHadoopUtil.get.globPath(fs, Path.mergePaths(validated(basep), validated(globp))),\n    hadoopConf \u003d conf,\n    filter \u003d null,\n    sparkSession \u003d spark, areRootPaths\u003dtrue)\n\n // If you are using Databricks Runtime 6.x and below,\n // remove \u003careRootPaths\u003dtrue\u003e from the bulkListLeafFiles function parameter.\n\n  fileCatalog.flatMap(_._2.map(_.path))\n}\n\n\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.059",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:47: \u001b[31merror: \u001b[0mmethod bulkListLeafFiles in object InMemoryFileIndex cannot be accessed in object org.apache.spark.sql.execution.datasources.InMemoryFileIndex\n         val fileCatalog \u003d InMemoryFileIndex.bulkListLeafFiles(\n                                             ^\n\u003cconsole\u003e:48: \u001b[31merror: \u001b[0mnot found: value paths\n           paths \u003d SparkHadoopUtil.get.globPath(fs, Path.mergePaths(validated(basep), validated(globp))),\n           ^\n\u003cconsole\u003e:49: \u001b[31merror: \u001b[0mnot found: value hadoopConf\n           hadoopConf \u003d conf,\n           ^\n\u003cconsole\u003e:50: \u001b[31merror: \u001b[0mambiguous reference to overloaded definition,\nboth method filter in object functions of type (column: org.apache.spark.sql.Column, f: (org.apache.spark.sql.Column, org.apache.spark.sql.Column) \u003d\u003e org.apache.spark.sql.Column)org.apache.spark.sql.Column\nand  method filter in object functions of type (column: org.apache.spark.sql.Column, f: org.apache.spark.sql.Column \u003d\u003e org.apache.spark.sql.Column)org.apache.spark.sql.Column\nmatch expected type ?\n           filter \u003d null,\n           ^\n\u003cconsole\u003e:51: \u001b[31merror: \u001b[0mnot found: value sparkSession\n           sparkSession \u003d spark, areRootPaths\u003dtrue)\n           ^\n\u003cconsole\u003e:51: \u001b[31merror: \u001b[0mnot found: value areRootPaths\n           sparkSession \u003d spark, areRootPaths\u003dtrue)\n                                 ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177059_2082931115",
+      "id": "paragraph_1631731510686_358851683",
+      "dateCreated": "2021-09-21 15:16:17.059",
+      "status": "READY"
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2021-09-21 15:16:17.059",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1632248177059_1247143486",
+      "id": "paragraph_1631729042274_784797840",
+      "dateCreated": "2021-09-21 15:16:17.059",
+      "status": "READY"
+    }
+  ],
+  "name": "RemoveFileSample",
+  "id": "2GGRMJ5DF",
+  "defaultInterpreterGroup": "spark-delta",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
