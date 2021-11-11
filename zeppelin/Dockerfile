@@ -1,7 +1,7 @@
-ARG USERNAME
+ARG REPO
 ARG TAG
 
-FROM $USERNAME/spark-base-python:$TAG
+FROM ${REPO}spark-base-python:$TAG
 
 ARG Z_VERSION
 
