@@ -43,6 +43,3 @@ kubectl apply -f yaml
    * https://gist.github.com/ogrrd/5831371: Install DNSMASQ on MAC OS. Never touch your local /etc/hosts file in OS X again 😎
    * https://zeppelin.apache.org/docs/0.10.0/interpreter/spark.html#dependency-management 
    * https://zeppelin.apache.org/docs/0.10.0/quickstart/kubernetes.html: Zeppelin on Kubernetes
-## Minikube mount
-   * https://minikube.sigs.k8s.io/docs/handbook/mount/
-   * https://thospfuller.com/2020/12/09/learn-how-to-mount-a-local-drive-in-a-pod-in-minikube-2021/
