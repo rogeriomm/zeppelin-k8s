@@ -716,32 +716,32 @@
         "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.options.claimName": {
           "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.options.claimName",
           "value": "lab-claim",
-          "type": "string",
-          "description": ""
+          "type": "string"
         },
         "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.mount.path": {
           "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.mount.path",
           "value": "/lab",
-          "type": "string",
-          "description": ""
+          "type": "string"
         },
         "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.mount.subPath": {
           "name": "spark.kubernetes.executor.volumes.persistentVolumeClaim.lab.mount.subPath",
           "value": "",
-          "type": "string",
-          "description": ""
+          "type": "string"
         },
         "spark.sql.catalog.spark_catalog": {
           "name": "spark.sql.catalog.spark_catalog",
           "value": "org.apache.spark.sql.delta.catalog.DeltaCatalog",
-          "type": "string",
-          "description": ""
+          "type": "string"
         },
         "spark.sql.extensions": {
           "name": "spark.sql.extensions",
           "value": "io.delta.sql.DeltaSparkSessionExtension",
-          "type": "string",
-          "description": ""
+          "type": "string"
+        },
+        "zeppelin.k8s.spark.useIngress": {
+          "name": "zeppelin.k8s.spark.useIngress",
+          "value": "false",
+          "type": "string"
         }
       },
       "status": "READY",
@@ -1451,7 +1451,7 @@
         },
         "zeppelin.spark.uiWebUrl": {
           "name": "zeppelin.spark.uiWebUrl",
-          "value": "",
+          "value": "http://{{PORT}}-{{SERVICE_NAME}}.zeppelin.worldl.xpt",
           "type": "string",
           "description": "Override Spark UI default URL. In Kubernetes mode, value can be Jinja template string with 3 template variables \u0027PORT\u0027, \u0027SERVICE_NAME\u0027 and \u0027SERVICE_DOMAIN\u0027. (ex: http://{{PORT}}-{{SERVICE_NAME}}.{{SERVICE_DOMAIN}})"
         },
@@ -1653,6 +1653,8 @@
       "option": {
         "remote": true,
         "port": -1,
+        "perNote": "shared",
+        "perUser": "shared",
         "isExistingProcess": false,
         "setPermission": false,
         "owners": [],
