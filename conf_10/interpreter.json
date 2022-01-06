@@ -742,6 +742,11 @@
           "name": "zeppelin.k8s.spark.useIngress",
           "value": "false",
           "type": "string"
+        },
+        "zeppelin.spark.maxResult ": {
+          "name": "zeppelin.spark.maxResult ",
+          "value": "1200",
+          "type": "string"
         }
       },
       "status": "READY",
