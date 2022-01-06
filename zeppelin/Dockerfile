@@ -22,7 +22,7 @@ COPY zeppelin-${Z_VERSION}-bin-all.tgz /tmp
 
 RUN echo "$LOG_TAG Download Zeppelin binary" && \
     mkdir -p ${Z_HOME} && \
-    tar --strip-components=1 -zxvf  /tmp/zeppelin-${Z_VERSION}-bin-all.tgz -C ${Z_HOME} && \
+    tar --strip-components=1 -zxf  /tmp/zeppelin-${Z_VERSION}-bin-all.tgz -C ${Z_HOME} && \
     rm -f /tmp/zeppelin-${Z_VERSION}-bin-all.tgz && \
     chown -R root:root ${Z_HOME} && \
     mkdir -p ${Z_HOME}/logs ${Z_HOME}/run ${Z_HOME}/webapps && \
