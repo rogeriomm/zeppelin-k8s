@@ -1,4 +1,8 @@
 
+![alt text](docs/zepp-spark-animated-flow.gif "Title")
+
+
+# References
    * http://mail-archives.apache.org/mod_mbox/zeppelin-commits/202004.mbox/%3C158687681748.4417.651442127044169905@gitbox.apache.org%3E
    * https://www.mail-archive.com/commits@zeppelin.apache.org/msg06149.html
    
