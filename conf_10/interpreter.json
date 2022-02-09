@@ -747,6 +747,36 @@
           "name": "zeppelin.spark.maxResult ",
           "value": "1200",
           "type": "string"
+        },
+        "fs.s3a.endpoint": {
+          "name": "fs.s3a.endpoint",
+          "value": "https://minio.minio-tenant-1.svc.cluster.local",
+          "type": "string"
+        },
+        "fs.s3a.impl": {
+          "name": "fs.s3a.impl",
+          "value": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+          "type": "string"
+        },
+        "fs.s3a.connection.ssl.enabled": {
+          "name": "fs.s3a.connection.ssl.enabled",
+          "value": true,
+          "type": "checkbox"
+        },
+        "fs.s3a.retry.interval": {
+          "name": "fs.s3a.retry.interval",
+          "value": "0",
+          "type": "number"
+        },
+        "fs.s3a.path.style.access": {
+          "name": "fs.s3a.path.style.access",
+          "value": true,
+          "type": "checkbox"
+        },
+        "fs.s3a.aws.credentials.provider": {
+          "name": "fs.s3a.aws.credentials.provider",
+          "value": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+          "type": "string"
         }
       },
       "status": "READY",
