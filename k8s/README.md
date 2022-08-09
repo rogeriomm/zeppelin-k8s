@@ -40,6 +40,5 @@ kubectl apply -f yaml
 # References
    * https://jboothomas.medium.com/running-spark-on-kubernetes-with-persistent-storage-24b7903bb40a: Running spark on Kubernetes with persistent storage 😎
    * https://doc.lucidworks.com/spark-guide/11031/running-spark-on-kubernetes#using-kubernetes-volumes: Running Spark on Kubernetes 
-   * https://gist.github.com/ogrrd/5831371: Install DNSMASQ on MAC OS. Never touch your local /etc/hosts file in OS X again 😎
    * https://zeppelin.apache.org/docs/0.10.0/interpreter/spark.html#dependency-management 
    * https://zeppelin.apache.org/docs/0.10.0/quickstart/kubernetes.html: Zeppelin on Kubernetes

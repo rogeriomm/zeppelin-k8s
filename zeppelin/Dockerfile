@@ -1,7 +1,8 @@
 ARG REPO
 ARG TAG
+ARG SPARK_VERSION
 
-FROM ${REPO}spark-base-python:$TAG
+FROM ${REPO}spark-jupyter-$SPARK_VERSION:$TAG
 
 ARG Z_VERSION
 

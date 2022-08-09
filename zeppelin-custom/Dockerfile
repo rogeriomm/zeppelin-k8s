@@ -1,15 +1,17 @@
 ARG REPO
 ARG TAG
 ARG Z_VERSION
+ARG SPARK_VERSION
 
-FROM ${REPO}zeppelin-${Z_VERSION}:$TAG
+FROM ${REPO}zeppelin-${Z_VERSION}-${SPARK_VERSION}:$TAG
 
 USER root
 
 # Install minio client
 RUN wget -nv -O /tmp/mc https://dl.min.io/client/mc/release/linux-amd64/mc && \
     mkdir -p /opt/minio/bin && \
-    mv /tmp/mc /opt/minio/bin
+    mv /tmp/mc /opt/minio/bin && \
+    chmod +x /opt/minio/bin/mc
 ENV PATH $PATH:/opt/minio/bin
 
 # Install aws client cli
