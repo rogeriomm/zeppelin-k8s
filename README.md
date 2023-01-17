@@ -1,6 +1,7 @@
 
 ![alt text](docs/zepp-spark-animated-flow.gif "Title")
 
+zeppelin.spark.uiWebUrl=https://world-zeppelin.duckdns.org/spark-job/{{PORT}}-{{SERVICE_NAME}}
 
 # References
    * https://zeppelin.apache.org/docs/0.10.0/quickstart/kubernetes.html

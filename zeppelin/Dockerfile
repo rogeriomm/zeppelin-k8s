@@ -2,7 +2,7 @@ ARG REPO
 ARG TAG
 ARG SPARK_VERSION
 
-FROM ${REPO}spark-jupyter-$SPARK_VERSION:$TAG
+FROM ${REPO}spark-base-python-$SPARK_VERSION:$TAG
 
 ARG Z_VERSION
 
@@ -34,10 +34,7 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     # Allow process to create new folders (e.g. webapps)
     chmod 775 ${Z_HOME}
 
-COPY log4j.properties ${ZEPPELIN_HOME}/conf/
-COPY log4j_docker.properties ${ZEPPELIN_HOME}/conf/
-COPY log4j2.properties ${ZEPPELIN_HOME}/conf/
-COPY log4j2_docker.properties ${ZEPPELIN_HOME}/conf/
+COPY log4j.properties log4j_docker.properties log4j2.properties log4j2_docker.properties ${Z_HOME}/conf/
 
 USER 1000
 
