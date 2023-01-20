@@ -2,6 +2,12 @@ ARG REPO
 ARG TAG
 ARG SPARK_VERSION
 
+FROM maven:3.5-jdk-11 as builder
+
+ADD ./dependencies /workspace/dependencies
+WORKDIR /workspace/dependencies
+RUN mvn clean install dependency:copy-dependencies
+
 FROM ${REPO}spark-base-python-$SPARK_VERSION:$TAG
 
 ARG Z_VERSION
@@ -35,6 +41,8 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     chmod 775 ${Z_HOME}
 
 COPY log4j.properties log4j_docker.properties log4j2.properties log4j2_docker.properties ${Z_HOME}/conf/
+
+COPY --from=builder /workspace/dependencies/target/dependency/*.jar /opt/zeppelin/lib/
 
 USER 1000
 
