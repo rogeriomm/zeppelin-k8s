@@ -3,12 +3,11 @@ ARG TAG
 ARG SPARK_VERSION
 ARG Z_VERSION
 
-FROM maven:3.5-jdk-11 as builder
+FROM maven:3.6-jdk-11 as builder
 
 ADD ./dependencies /workspace/dependencies
 WORKDIR /workspace/dependencies
 RUN mvn clean install dependency:copy-dependencies
-RUN java --version
 
 FROM apache/zeppelin:${Z_VERSION} as zeppelin
 
