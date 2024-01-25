@@ -53,6 +53,13 @@
       <version>437</version>
     </dependency>
 
+    <!-- https://prestodb.io/docs/current/installation/jdbc.html -->
+    <dependency>
+      <groupId>com.facebook.presto</groupId>
+      <artifactId>presto-jdbc</artifactId>
+      <version>0.285</version>
+    </dependency>
+
    </dependencies>
 
  </project>
