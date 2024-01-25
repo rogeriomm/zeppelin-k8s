@@ -46,6 +46,13 @@
       <scope>provided</scope>
     </dependency>
 
-  </dependencies>
+    <!--  https://trino.io/docs/current/client/jdbc.html -->
+    <dependency>
+      <groupId>io.trino</groupId>
+      <artifactId>trino-jdbc</artifactId>
+      <version>437</version>
+    </dependency>
 
-</project>
+   </dependencies>
+
+ </project>
